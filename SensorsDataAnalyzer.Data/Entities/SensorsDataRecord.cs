@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SensorsDataAnalyzer.Data
 {
-    public class SensorsDataRecord : BaseEntity
+    public class SensorsDataRecord : BaseEntity, ISensorsDataContainer<AccelerometerDataRecord>
     {
         [Key, Column(Order = 1)]
         public string IMEI { get; set; }
@@ -15,15 +16,13 @@ namespace SensorsDataAnalyzer.Data
 
         public double? Longitude { get; set; }
 
-        public double? AccelerometerXCoord { get; set; }
-
-        public double? AccelerometerYCoord { get; set; }
-
-        public double? AccelerometerZCoord { get; set; }
-
         public double? Proximity { get; set; } // in cm
 
         [Required]
         public DateTime SentDate { get; set; }
+
+        public virtual ICollection<AccelerometerDataRecord> AccelerometerDataRecords { get; set; }
+        public virtual ICollection<GyroscopeDataRecord> GyroscopeDataRecords { get; set; }
+        public virtual ICollection<MagnetometerDataRecord> MagnetometerDataRecords { get; set; }
     }
 }

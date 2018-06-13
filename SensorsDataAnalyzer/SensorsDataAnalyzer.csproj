@@ -17,7 +17,7 @@
     <AssemblyName>SensorsDataAnalyzer</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -179,9 +179,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AnalysisController.cs" />
+    <Compile Include="Models\BindingModels\AccelerometerDataBindingModel.cs" />
+    <Compile Include="Models\BindingModels\SensorsDataBindingModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SensorsDataModel.cs" />
+    <Compile Include="Models\ViewModels\SensorsDataViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,13 +219,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -238,7 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -257,6 +263,10 @@
     <ProjectReference Include="..\SensorsDataAnalyzer.Data\SensorsDataAnalyzer.Data.csproj">
       <Project>{23F418C8-96D5-4853-9680-8AD4D980FC52}</Project>
       <Name>SensorsDataAnalyzer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SensorsDataAnalyzer.Processing\SensorsDataAnalyzer.Processing.csproj">
+      <Project>{F28BBEE5-7D54-4748-84E2-31BE46428614}</Project>
+      <Name>SensorsDataAnalyzer.Processing</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -277,7 +287,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52653</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52653/</IISUrl>
+          <IISUrl>http://localhost/SensorsAnalyzer</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

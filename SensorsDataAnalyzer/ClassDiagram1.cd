@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SensorsDataAnalyzer.Controllers.AnalysisController">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAEAABAAAAAAAAAAAAAAAAAQgAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AnalysisController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Models.SensorsDataModel">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAARAAAAAABAAAAAAAAAAAABAAAAACAEAAAg=</HashCode>
+      <FileName>Models\SensorsDataModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Data.BaseEntity" Collapsed="true">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Data.AccelerometerDataRecord" Collapsed="true">
+    <Position X="8.75" Y="3" Width="2" />
+    <InheritanceLine Type="SensorsDataAnalyzer.Data.BaseEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="1.062" />
+        <Point X="11.371" Y="1.062" />
+        <Point X="11.371" Y="2.846" />
+        <Point X="9.75" Y="2.846" />
+        <Point X="9.75" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Data.GyroscopeDataRecord" Collapsed="true">
+    <Position X="8.75" Y="2" Width="2" />
+    <InheritanceLine Type="SensorsDataAnalyzer.Data.BaseEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="1.062" />
+        <Point X="11.373" Y="1.062" />
+        <Point X="11.373" Y="1.648" />
+        <Point X="9.75" Y="1.648" />
+        <Point X="9.75" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Data.MagnetometerDataRecord" Collapsed="true">
+    <Position X="8.75" Y="4" Width="2" />
+    <InheritanceLine Type="SensorsDataAnalyzer.Data.BaseEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.25" Y="1.062" />
+        <Point X="11.371" Y="1.062" />
+        <Point X="11.371" Y="3.846" />
+        <Point X="9.75" Y="3.846" />
+        <Point X="9.75" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Data.SensorsDataRecord" Collapsed="true">
+    <Position X="8.75" Y="0.75" Width="2" />
+    <InheritanceLine Type="SensorsDataAnalyzer.Data.BaseEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="1.062" />
+        <Point X="10.75" Y="1.062" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Classifiers.BaseCoordinatesClassifier">
+    <Position X="16" Y="0.75" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Classifiers.KNearestNeighborsClassifier" Collapsed="true">
+    <Position X="16" Y="3" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Classifiers.NeuralNetworkBasedClassifier" Collapsed="true">
+    <Position X="16" Y="5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Classifiers.SupportVectorMachineClassifier" Collapsed="true">
+    <Position X="16" Y="4" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Minimizers.LowPassFilterMinimizer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="3.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.Minimizers.MovingAverageMinimizer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="2.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SensorsDataAnalyzer.Processing.GoogleMapsApiLocator" Collapsed="true">
+    <Position X="19.25" Y="5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="SensorsDataAnalyzer.Data.ISensorsDataContainer&lt;T&gt;">
+    <Position X="11.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="SensorsDataAnalyzer.Data.ICoorinateContainer">
+    <Position X="11.75" Y="3" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="SensorsDataAnalyzer.Processing.Minimizers.INoizeMinimizer">
+    <Position X="19.25" Y="0.75" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

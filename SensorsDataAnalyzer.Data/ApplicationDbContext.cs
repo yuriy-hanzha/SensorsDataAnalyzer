@@ -2,7 +2,7 @@
 
 namespace SensorsDataAnalyzer.Data
 {
-    class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection")
@@ -10,5 +10,8 @@ namespace SensorsDataAnalyzer.Data
         }   
 
         public DbSet<SensorsDataRecord> SensorDataRecords { get; set; }
+        public DbSet<AccelerometerDataRecord> AccelerometerDataRecords { get; set; }
+        public DbSet<GyroscopeDataRecord> GyroscopeDataRecords { get; set; }
+        public DbSet<MagnetometerDataRecord> MagnetometerDataRecords { get; set; }
     }
 }

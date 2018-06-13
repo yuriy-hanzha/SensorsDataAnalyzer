@@ -1,30 +1,65 @@
 ﻿using SensorsDataAnalyzer.Data;
+using SensorsDataAnalyzer.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace SensorsDataAnalyzer.Controllers
 {
-    [RoutePrefix("analyzer")]
+    [RoutePrefix("api")]
     public class AnalysisController : ApiController
     {
-        IGenericRepository<SensorsDataRecord> _repository;
-        public AnalysisController()
+        [HttpGet]
+        [Route("get/{IMEI}/{id}")]
+        public IHttpActionResult Get(string IMEI, int id)
         {
-            _repository = new GenericRepository<SensorsDataRecord>();
+            SensorsDataModel model = new SensorsDataModel();
+            SensorsDataViewModel result = model.GetRecord(IMEI, id);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("getAll/{IMEI}")]
+        public IHttpActionResult GetAll(string IMEI)
+        {
+            SensorsDataModel model = new SensorsDataModel();
+            IEnumerable<SensorsDataViewModel> result = model.GetAllRecords(IMEI);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("getByDay/{IMEI}/{day}")]
+        public IHttpActionResult GetByDate(string IMEI, DateTime date)
+        {
+            SensorsDataModel model = new SensorsDataModel();
+            IEnumerable<SensorsDataViewModel> result = model.GetRecordByDate(IMEI, date);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("getInTimeRange/{IMEI}/{from}/{to}")]
+        public IHttpActionResult GetInTimeRange(string IMEI, DateTime from, DateTime to)
+        {
+            SensorsDataModel model = new SensorsDataModel();
+            IEnumerable<SensorsDataViewModel> result = model.GetRecordInTimeRange(IMEI, from, to);
+
+            return Ok(result);
         }
 
         [HttpPost]
-        [Route("set")]
-        public IHttpActionResult SetData(IEnumerable<SensorsDataRecord> data)
+        [Route("save")]
+        public IHttpActionResult SetData(SensorsDataBindingModel data)
         {
-            data.ToList().ForEach(record => _repository.Add(record));
-            _repository.SaveChanges();
+            if (data == null)
+                return BadRequest("data cannot be empty");
 
-            return Ok();
+            var model = new SensorsDataModel();
+            SensorsDataRecord entity = model.StoreData(data);
+
+            return Ok(new { Id = entity.Id });
         }
     }
 }

@@ -48,24 +48,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Entities\AccelerometrDataRecord.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\GyroscopeDataRecord.cs" />
+    <Compile Include="Entities\ISensorsDataContainer.cs" />
+    <Compile Include="Entities\MagnetometerDataRecord.cs" />
     <Compile Include="Entities\SensorsDataRecord.cs" />
     <Compile Include="Migrations\201801141857138_initial.cs" />
     <Compile Include="Migrations\201801141857138_initial.Designer.cs">
       <DependentUpon>201801141857138_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805032043031_accelerometrDataPlacedIntoSeparateTable.cs" />
+    <Compile Include="Migrations\201805032043031_accelerometrDataPlacedIntoSeparateTable.Designer.cs">
+      <DependentUpon>201805032043031_accelerometrDataPlacedIntoSeparateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281827585_addedGyroscopeAndMagnetometerSupport.cs" />
+    <Compile Include="Migrations\201805281827585_addedGyroscopeAndMagnetometerSupport.Designer.cs">
+      <DependentUpon>201805281827585_addedGyroscopeAndMagnetometerSupport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporitories\GenericRepository.cs" />
     <Compile Include="Reporitories\IGenericRepository.cs" />
+    <Compile Include="Reporitories\SensorsDataRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801141857138_initial.resx">
       <DependentUpon>201801141857138_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805032043031_accelerometrDataPlacedIntoSeparateTable.resx">
+      <DependentUpon>201805032043031_accelerometrDataPlacedIntoSeparateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281827585_addedGyroscopeAndMagnetometerSupport.resx">
+      <DependentUpon>201805281827585_addedGyroscopeAndMagnetometerSupport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
